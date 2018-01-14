@@ -14,25 +14,25 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name', 32);
+            $table->integer('ID')->default(0);
+            $table->string('name', 32)->default('');
             $table->string('passwd', 64);
-            $table->string('Prompt', 32);
-            $table->string('answer', 32);
-            $table->string('truename', 32);
-            $table->string('idnumber', 32);
-            $table->string('email', 64)->unique();
-            $table->string('mobilenumber', 32);
-            $table->string('province', 32);
-            $table->string('city', 32);
-            $table->string('phonenumber', 32);
-            $table->string('anddress', 64);
-            $table->string('postalcode', 8);
-            $table->integer('gender');
-            $table->date('birthday');
+            $table->string('Prompt', 32)->default('');
+            $table->string('answer', 32)->default('');
+            $table->string('truename', 32)->default('');
+            $table->string('idnumber', 32)->default('');
+            $table->string('email', 64)->default('')->unique();
+            $table->string('mobilenumber', 32)->default('')->nullable();
+            $table->string('province', 32)->default('')->nullable();
+            $table->string('city', 32)->default('')->nullable();
+            $table->string('phonenumber', 32)->default('')->nullable();
+            $table->string('anddress', 64)->default('')->nullable();
+            $table->string('postalcode', 8)->default('')->nullable();
+            $table->integer('gender')->default(0)->nullable();
+            $table->date('birthday')->nullable();
             $table->dateTime('creatime');
-            $table->string('qq',32);
-            $table->string('passwd2',64);
+            $table->string('qq',32)->default('')->nullable();
+            $table->string('passwd2',64)->nullable();
         });
     }
 

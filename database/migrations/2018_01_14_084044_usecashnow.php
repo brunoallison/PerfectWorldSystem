@@ -14,13 +14,13 @@ class Usecashnow extends Migration
     public function up()
     {
         Schema::create('usecashnow', function (Blueprint $table) {
-            $table->increments('userid');
-            $table->integer('zoneid')->index();
-            $table->integer('sn')->index();
-            $table->integer('aid');
-            $table->integer('point');
-            $table->integer('cash');
-            $table->integer('status');
+            $table->integer('userid')->default(0);
+            $table->integer('zoneid')->default(0);
+            $table->integer('sn')->default(0);
+            $table->integer('aid')->default(0);
+            $table->integer('point')->default(0);
+            $table->integer('cash')->default(0);
+            $table->integer('status')->default(0);
             $table->dateTime('creatime');
         });
     }

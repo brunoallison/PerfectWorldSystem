@@ -14,12 +14,12 @@ class Forbid extends Migration
     public function up()
     {
         Schema::create('forbid', function (Blueprint $table) {
-            $table->increments('userid');
-            $table->integer('type')->index();
+            $table->integer('userid')->default(0);
+            $table->integer('type')->default(0);
             $table->dateTime('ctime');
-            $table->integer('forbid_time');
+            $table->integer('forbid_time')->default(0);
             $table->binary('reason');
-            $table->integer('gmroleid')->nullable();
+            $table->integer('gmroleid')->default(0)->nullable();
         });
     }
 

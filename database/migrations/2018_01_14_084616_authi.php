@@ -14,9 +14,9 @@ class Authi extends Migration
     public function up()
     {
         Schema::create('auth', function (Blueprint $table) {
-            $table->increments('userid');
-            $table->integer('zoneid')->index();
-            $table->integer('rid')->index();
+            $table->integer('userid')->default(0);
+            $table->integer('zoneid')->default(0);
+            $table->integer('rid')->default(0);
         });
     }
 

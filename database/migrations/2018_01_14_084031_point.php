@@ -14,14 +14,14 @@ class Point extends Migration
     public function up()
     {
         Schema::create('point', function (Blueprint $table) {
-            $table->increments('uid');
-            $table->integer('aid')->index();
-            $table->integer('time');
-            $table->integer('zoneid')->nullable();
-            $table->integer('zonelocalid');
-            $table->dateTime('accountstart');
-            $table->dateTime('lastlogin');
-            $table->dateTime('enddate');
+            $table->integer('uid')->default(0);
+            $table->integer('aid')->default(0);
+            $table->integer('time')->default(0);
+            $table->integer('zoneid')->default(0)->nullable();
+            $table->integer('zonelocalid')->default(0)->nullable();
+            $table->dateTime('accountstart')->nullable();
+            $table->dateTime('lastlogin')->nullable();
+            $table->dateTime('enddate')->nullable();
         });
     }
 
