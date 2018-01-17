@@ -1,10 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Point extends Migration
+/**
+ * Class CreatePointsTable.
+ */
+class CreatePointsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -32,6 +34,6 @@ class Point extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('points');
     }
 }

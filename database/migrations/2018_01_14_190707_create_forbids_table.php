@@ -1,10 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Forbid extends Migration
+/**
+ * Class CreateForbidsTable.
+ */
+class CreateForbidsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -30,6 +32,6 @@ class Forbid extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('forbids');
     }
 }

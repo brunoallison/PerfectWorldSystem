@@ -1,9 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * Class CreateUsersTable.
+ */
 class CreateUsersTable extends Migration
 {
     /**
@@ -31,8 +33,8 @@ class CreateUsersTable extends Migration
             $table->integer('gender')->default(0)->nullable();
             $table->date('birthday')->nullable();
             $table->dateTime('creatime');
-            $table->string('qq',32)->default('')->nullable();
-            $table->string('passwd2',64)->nullable();
+            $table->string('qq', 32)->default('')->nullable();
+            $table->string('passwd2', 64)->nullable();
         });
     }
 
@@ -43,6 +45,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::drop('users');
     }
 }

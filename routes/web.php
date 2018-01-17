@@ -11,6 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//Usuarios
+Route::get('/login','UserController@login')->name('login');
+Route::get('/','UserController@login')->name('login');
+Route::post('/login','UserController@postLogin')->name('user.login');
+Route::get('/logout','UserController@logout')->name('logout');
+
+Route::get('/teste', 'TestController@index')->name('teste.index');
+
+Route::group(['middleware' => 'auth'], function () {
+
+    /*//SETORES
+    Route::get('/setores', 'SetorController@index')->name('setor.index');
+    Route::get('/setor','SetorController@create')->name('setor.create');
+    Route::post('/setor','SetorController@store')->name('setor.store');
+    Route::get('/setor/{id}', 'SetorController@edit')->name('setor.edit');
+    Route::put('/setor/{id}', 'SetorController@update')->name('setor.update');
+    Route::delete('/apagar-setor', 'SetorController@destroy')->name('setor.destroy');*/
 });
+
+//Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');

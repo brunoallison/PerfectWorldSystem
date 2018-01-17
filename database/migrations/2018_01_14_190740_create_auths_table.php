@@ -1,10 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Authi extends Migration
+/**
+ * Class CreateAuthsTable.
+ */
+class CreateAuthsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -27,6 +29,6 @@ class Authi extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('auths');
     }
 }

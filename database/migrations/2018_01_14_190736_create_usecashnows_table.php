@@ -1,10 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Usecashlog extends Migration
+/**
+ * Class CreateUsecashnowsTable.
+ */
+class CreateUsecashnowsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +15,7 @@ class Usecashlog extends Migration
      */
     public function up()
     {
-        Schema::create('usecashlog', function (Blueprint $table) {
+        Schema::create('usecashnow', function (Blueprint $table) {
             $table->integer('userid')->default(0);
             $table->integer('zoneid')->default(0);
             $table->integer('sn')->default(0);
@@ -22,7 +24,6 @@ class Usecashlog extends Migration
             $table->integer('cash')->default(0);
             $table->integer('status')->default(0);
             $table->dateTime('creatime');
-            $table->dateTime('fintime');
         });
     }
 
@@ -33,6 +34,6 @@ class Usecashlog extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('usecashnows');
     }
 }
