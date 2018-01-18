@@ -20,7 +20,7 @@
 </div>
 
 <div class="wrapper">
-    @include('elements._header')
+    {{--@include('elements._header')--}}
     <br></br>
     @yield('content')
 </div>
@@ -29,6 +29,7 @@
 {!! Html::script('js/jquery-3.2.1.min.js') !!}
 {!! Html::script('https://unpkg.com/sweetalert/dist/sweetalert.min.js') !!}
 {!! Html::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') !!}
+{!! Html::script('https://www.google.com/recaptcha/api.js') !!}
 {{--{!! Html::script('js/main.js') !!}--}}
 @stack('scripts')
 </body>

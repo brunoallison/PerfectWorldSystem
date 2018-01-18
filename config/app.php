@@ -177,8 +177,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-        Prettus\Repository\Providers\RepositoryServiceProvider::class,
         Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+        Prettus\Repository\Providers\RepositoryServiceProvider::class
 
     ],
 

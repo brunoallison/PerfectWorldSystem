@@ -13,11 +13,12 @@
 
 //Usuarios
 Route::get('/login','UserController@login')->name('login');
-Route::get('/','UserController@login')->name('login');
 Route::post('/login','UserController@postLogin')->name('user.login');
 Route::get('/logout','UserController@logout')->name('logout');
 
-Route::get('/teste', 'TestController@index')->name('teste.index');
+Route::get('/create','UserController@create')->name('user.create');
+Route::post('/create','UserController@store')->name('user.store');
+
 
 Route::group(['middleware' => 'auth'], function () {
 

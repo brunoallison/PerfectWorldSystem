@@ -3,10 +3,10 @@
     <div class="container login-container">
         <h3 class="title">Login</h3></div>
         <div class="row">
-            {{--@include('errors._check_form')
-            @include('flash::message')--}}
             <div class="col-md-4"></div>
             <div class="col-md-4">
+                {{--@include('errors._check_form')--}}
+                @include('flash::message')
                 <div class="container-login center-block">
                     <div class="topo-login">
                         <p>Fazer Login</p>
