@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\User\UserCreateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Services\UserRegisterService;
@@ -37,7 +38,7 @@ class UserController extends Controller
         return view('user.create');
     }
 
-    public function store(Request $request)
+    public function store(UserCreateRequest $request)
     {
 
         flash('Usuário cadastrado com sucesso.')->success();
