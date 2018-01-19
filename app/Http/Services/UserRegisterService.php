@@ -2,6 +2,7 @@
 
 namespace App\Http\Services;
 
+use App\Http\Requests\User\UserCreateRequest;
 use App\Repositories\UserRepository;
 
 class UserRegisterService
@@ -24,10 +25,13 @@ class UserRegisterService
      * @param array $data
      * @return mixed
      */
-    private function saveUser(array $data)
+    public function saveUser(UserCreateRequest $request)
     {
-        dd($data);
-        $user = $this->userRepository->create($data);
+        $resultado = $this->userRepository->pegarUltimoIdCadastrado();
+        dd($resultado);
+        exit;
+        //$id = $this->userRepository
+        $user = $this->userRepository->create($request->all());
 
         return $user;
     }

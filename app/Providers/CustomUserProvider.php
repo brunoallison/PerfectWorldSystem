@@ -2,7 +2,7 @@
 
 namespace App\Auth;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\UserProvider;
 

@@ -40,7 +40,7 @@ class UserController extends Controller
 
     public function store(UserCreateRequest $request)
     {
-
+        $this->userRegisterService->saveUser($request);
         flash('Usuário cadastrado com sucesso.')->success();
     }
 

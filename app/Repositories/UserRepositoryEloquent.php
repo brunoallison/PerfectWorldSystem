@@ -32,5 +32,15 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
+
+    public function pegarUltimoIdCadastrado()
+    {
+        //TESTANDO
+        $resultado = $this->scopeQuery(function ($query) {
+            return $query->select('MAX(id)');
+        })->all();
+
+        return $resultado;
+    }
     
 }
