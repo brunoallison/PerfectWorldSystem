@@ -47,7 +47,7 @@
                     <label>Data de Nascimento</label>
                     {!! Form::date('birthday',null,['class' => 'form-control','required']) !!}
                 </div>
-                <div class="g-recaptcha" data-sitekey="6LdbRkEUAAAAAM32TldeL2NfQItAZ9FJvauJJKQw"></div>
+                {!! Recaptcha::render() !!}
                 <div class="form-group">
                     <button type="submit" class="btn btn-default-dark">Entrar</button>
                 </div>
