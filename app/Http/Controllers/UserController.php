@@ -4,18 +4,19 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests\User\UserCreateRequest;
+use App\Repositories\UserRepository;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Services\UserRegisterService;
 
 class UserController extends Controller
 {
-    /** @var   */
-    protected $userRegisterService;
+    /** @var */
+    protected $repository;
 
-    public function __construct(UserRegisterService $userRegisterService)
+    public function __construct(UserRepository $repository)
     {
-        $this->userRegisterService = $userRegisterService;
+        $this->repository = $repository;
     }
 
     public function login()
@@ -40,7 +41,12 @@ class UserController extends Controller
 
     public function store(UserCreateRequest $request)
     {
-        $this->userRegisterService->saveUser($request);
+        $ultimoId = $this->repository->pegarUltimoIdCadastrado() + 16;
+        $request->request->add(['ID' => $ultimoId,
+            'creatime' => Carbon::now(),
+            'passwd' => criptografa($request->name, $request->passwd),
+            'passwd2' => criptografa($request->name, $request->passwd)]);
+        $result = $this->repository->create($request->all());
         flash('Usuário cadastrado com sucesso.')->success();
     }
 

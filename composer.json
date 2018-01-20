@@ -31,7 +31,10 @@
         "psr-4": {
             "App\\": "app/",
             "PerfectWorldSystem\\": "app/"
-        }
+        },
+        "files":[
+            "app/Helper/helper.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

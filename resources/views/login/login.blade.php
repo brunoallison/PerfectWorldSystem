@@ -1,15 +1,13 @@
 @extends('templates.app')
 @section('content')
     <div class="container login-container">
-        <h3 class="title">Login</h3></div>
+        <h3 class="title">Autenticação do Painel de Usuários</h3></div>
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 {{--@include('errors._check_form')--}}
                 @include('flash::message')
                 <div class="container-login center-block">
-                    <div class="topo-login">
-                        <p>Fazer Login</p>
                     </div>
                     {!! Form::open(['route' => 'user.login', 'method' => 'post']) !!}
                     <div class="form-group">

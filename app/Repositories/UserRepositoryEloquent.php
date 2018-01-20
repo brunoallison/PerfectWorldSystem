@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use Illuminate\Support\Facades\DB;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Models\User;
@@ -36,9 +37,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     public function pegarUltimoIdCadastrado()
     {
         //TESTANDO
-        $resultado = $this->scopeQuery(function ($query) {
-            return $query->select('MAX(id)');
-        })->all();
+        $resultado = DB::table('users')->max('id');
 
         return $resultado;
     }
