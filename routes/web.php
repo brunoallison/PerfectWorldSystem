@@ -12,7 +12,7 @@
 */
 
 //Usuarios
-Route::get('/cp','UserController@login')->name('login');
+Route::get('/','UserController@login')->name('login');
 Route::post('/login','UserController@postLogin')->name('user.login');
 Route::get('/logout','UserController@logout')->name('logout');
 
