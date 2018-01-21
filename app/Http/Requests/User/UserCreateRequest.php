@@ -47,8 +47,8 @@ class UserCreateRequest extends FormRequest
     public function messages()
     {
         return [
-            'g-recaptcha-response.required' => 'É necessário marcar a opção Não sou um robô.',
-            'g-recaptcha-response.recaptcha' => 'Confirmação do reCaptcha incorreta. Tente novamente.',
+            'g-recaptcha-response.required' => 'É necessário marcar o campo captcha.',
+            'g-recaptcha-response.recaptcha' => 'Por favor, garanta que você é humano',
             'name.required' => 'Campo login é obrigatório.',
             'name.max' => 'Tamanho do login muito grande.',
             'name.unique' => 'Login inválido, tente outro diferente.',
