@@ -19,6 +19,11 @@ class UserController extends Controller
         $this->repository = $repository;
     }
 
+    public function index()
+    {
+        return view('site.index');
+    }
+
     public function login()
     {
         return view('login.login');
@@ -45,9 +50,10 @@ class UserController extends Controller
         $request->request->add(['ID' => $ultimoId,
             'creatime' => Carbon::now(),
             'passwd' => criptografa($request->name, $request->passwd),
-            'passwd2' => criptografa($request->name, $request->passwd)]);
+            'passwd2' => criptografa($request->name, $request->passwd),
+            'actived' => 0]);
         $result = $this->repository->create($request->all());
-        flash('Usuário cadastrado com sucesso.')->success();
+        flash('Usuário cadastrado com sucesso. Confirme sua conta pelo e-mail.')->success();
     }
 
     public function logout()

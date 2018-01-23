@@ -10,8 +10,12 @@
     {!! Html::script('js/libs/main.js') !!}
 @endpush
 @section('content')
-    <div class="container">
-        <div class="row">
+    <h2 align="center">Perfect World X</h2>
+    <div class="panel panel-default col-md-4 col-md-offset-4">
+        <div class="panel-heading">
+            <h3 class="panel-title" align="center">Criar Conta</h3>
+        </div>
+        <div class="panel-body">
             @include('flash::message')
             @include('errors._check_form')
             <div class="col-md-12">
@@ -57,7 +61,8 @@
                     <label>Data de Nascimento</label>
                     {!! Form::text('birthday',null,['class' => 'form-control calendar','required', 'required']) !!}
                 </div>
-                {!! Recaptcha::render() !!}
+                {!! Recaptcha::render() !!}<br>
+
                 <div class="form-group">
                     <button type="submit" class="btn btn-default-dark">Cadastrar</button>
                 </div>
