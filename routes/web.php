@@ -16,8 +16,10 @@ Route::get('/cp','UserController@login')->name('login');
 Route::post('/login','UserController@postLogin')->name('user.login');
 Route::get('/logout','UserController@logout')->name('logout');
 
-Route::get('cp/criar-conta','UserController@create')->name('user.create');
+Route::get('/cp/criar-conta','UserController@create')->name('user.create');
 Route::post('cp/criar-conta','UserController@store')->name('user.store');
+
+Route::get('/','UserController@index')->name('index');
 
 
 Route::group(['middleware' => 'auth'], function () {

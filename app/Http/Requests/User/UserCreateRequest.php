@@ -27,6 +27,7 @@ class UserCreateRequest extends FormRequest
         return [
             'g-recaptcha-response' => 'required|recaptcha',
             'name' => [
+                'alpha_num',
                 'required',
                 'max:32',
                 Rule::unique('users')->ignore($this->ID)->where(function ($query) {
@@ -47,10 +48,11 @@ class UserCreateRequest extends FormRequest
     public function messages()
     {
         return [
-            'g-recaptcha-response.required' => 'É necessário marcar a opção Não sou um robô.',
-            'g-recaptcha-response.recaptcha' => 'Confirmação do reCaptcha incorreta. Tente novamente.',
+            'g-recaptcha-response.required' => 'É necessário marcar o campo captcha.',
+            'g-recaptcha-response.recaptcha' => 'Por favor, garanta que você é humano',
             'name.required' => 'Campo login é obrigatório.',
-            'name.max' => 'Tamanho do login muito grande.',
+            'name.alpha_num' => 'O nome do usuário deve ter apenas letras e números.',
+            'name.max' => 'O nome de usuário deve ter no máximo 32 caracteres.',
             'name.unique' => 'Login inválido, tente outro diferente.',
             'passwd.required' => 'Campos de senha é obrigatório.',
             'passwd.max' => 'Tamanho da senha muito grande.',
@@ -63,7 +65,7 @@ class UserCreateRequest extends FormRequest
             'truename.max' => 'Tamanho do nome muito grande.',
             'email.required' => 'Campo email é obrigatório.',
             'email.max' => 'Tamanho do email muito grande.',
-            'email.unique' => 'E-mail já cadastrado no sistema.',
+            'email.unique' => 'Este email já está sendo usado.',
             'email.email' => 'Por favor, o formato de e-mail está inválido.',
             'qq.required' => 'Campo pergunta secreta é obrigatório.',
             'qq.max' => 'Tamanho da pergunta muito grande.',

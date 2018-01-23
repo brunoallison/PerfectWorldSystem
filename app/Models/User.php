@@ -41,13 +41,16 @@ class User extends Model implements Transformable
         'birthday',
         'creatime',
         'qq',
-        'passwd2'
+        'passwd2',
+        'actived',
+        'token'
     ];
         protected $dates = ['deleted_at'];
 
     protected $hidden = [
         'passwd',
-        'passwd2'
+        'passwd2',
+        'token'
     ];
 
     public function setBirthdayAttribute($date)

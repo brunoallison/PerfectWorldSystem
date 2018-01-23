@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title> Controlador Interno </title>
+    <title> Perfect World Server </title>
 
     {!! Html::style('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css') !!}
     {{--{!! Html::style('css/style.min.css') !!}--}}
