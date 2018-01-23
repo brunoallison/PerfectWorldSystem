@@ -16,6 +16,7 @@ use Prettus\Repository\Traits\TransformableTrait;
 class User extends Model implements Transformable
 {
     use TransformableTrait, SoftDeletes;
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -41,16 +42,13 @@ class User extends Model implements Transformable
         'birthday',
         'creatime',
         'qq',
-        'passwd2',
-        'actived',
-        'token'
+        'passwd2'
     ];
         protected $dates = ['deleted_at'];
 
     protected $hidden = [
         'passwd',
-        'passwd2',
-        'token'
+        'passwd2'
     ];
 
     public function setBirthdayAttribute($date)

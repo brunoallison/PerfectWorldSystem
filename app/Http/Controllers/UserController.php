@@ -51,9 +51,17 @@ class UserController extends Controller
             'creatime' => Carbon::now(),
             'passwd' => criptografa($request->name, $request->passwd),
             'passwd2' => criptografa($request->name, $request->passwd),
-            'actived' => 0]);
-        $result = $this->repository->create($request->all());
+            'idnumber' => request()->ip(),
+            'mobilenumber' => '0',
+            'province' => '0',
+            'city' => '0',
+            'phonenumber' => '0',
+            'address' => '0',
+            'postalcode' => '0',
+            'adm' => '0']);
+        $this->repository->create($request->all());
         flash('Usuário cadastrado com sucesso. Confirme sua conta pelo e-mail.')->success();
+        return redirect()->back();
     }
 
     public function logout()

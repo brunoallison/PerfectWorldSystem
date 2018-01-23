@@ -14,6 +14,7 @@ use Prettus\Repository\Traits\TransformableTrait;
 class Usecashlog extends Model implements Transformable
 {
     use TransformableTrait;
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.

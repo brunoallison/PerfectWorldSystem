@@ -44,7 +44,7 @@
                 </div>
                 <div class="form-group">
                     <label>Pergunta Secreta</label>
-                    {!! Form::text('qq',null,['class' => 'form-control','required','placeholder' => 'Pergunta Secreta', 'required']) !!}
+                    {!! Form::text('Prompt',null,['class' => 'form-control','required','placeholder' => 'Pergunta Secreta', 'required']) !!}
                 </div>
                 <div class="form-group">
                     <label>Resposta Secreta</label>
