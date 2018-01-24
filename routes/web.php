@@ -11,6 +11,14 @@
 |
 */
 
+//SITE
+Route::get('/','SiteController@index')->name('index');
+Route::get('/download','SiteController@download')->name('download');
+Route::get('/infos','SiteController@infos')->name('infos');
+Route::get('/rank','SiteController@rank')->name('rank');
+Route::get('/staff','SiteController@staff')->name('staff');
+
+
 //Usuarios
 Route::get('/cp','UserController@login')->name('login');
 Route::post('/login','UserController@postLogin')->name('user.login');
@@ -18,8 +26,6 @@ Route::get('/logout','UserController@logout')->name('logout');
 
 Route::get('/cp/criar-conta','UserController@create')->name('user.create');
 Route::post('cp/criar-conta','UserController@store')->name('user.store');
-
-Route::get('/','UserController@index')->name('index');
 
 
 Route::group(['middleware' => 'auth'], function () {

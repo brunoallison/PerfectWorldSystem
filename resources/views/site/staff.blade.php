@@ -8,7 +8,7 @@
         </div>
         <div class="post_wrapp">
             <div class="post_wrapp_v2">
-                <h3><a href="#"> Inauguração do Servidor </a></h3>
+                <h3><a href="#"> staff do Servidor </a></h3>
                 <div class="post_text">
                     #BREVE<br>
 
