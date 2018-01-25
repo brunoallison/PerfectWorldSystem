@@ -33,6 +33,7 @@ class UserController extends Controller
     public function postLogin(Request $request)
     {
         if (Auth::attempt(['name' => $request->name, 'passwd' => $request->passwd])) {
+            //dd(Auth::user());
             return redirect()->route('user.index');
         }
 
