@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Middleware\User;
 use App\Http\Requests\User\UserCreateRequest;
 use App\Repositories\UserRepository;
 use Carbon\Carbon;
@@ -33,7 +34,6 @@ class UserController extends Controller
     public function postLogin(Request $request)
     {
         if (Auth::attempt(['name' => $request->name, 'passwd' => $request->passwd])) {
-            //dd(Auth::user());
             return redirect()->route('user.index');
         }
 

@@ -16,7 +16,7 @@ class User
      */
     public function handle($request, Closure $next)
     {
-        dd(auth()->check());
+        dd(auth()->user());
         return $next($request);
     }
 }
