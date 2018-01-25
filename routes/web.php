@@ -25,10 +25,12 @@ Route::post('/login','UserController@postLogin')->name('user.login');
 Route::get('/logout','UserController@logout')->name('logout');
 
 Route::get('/cp/criar-conta','UserController@create')->name('user.create');
-Route::post('cp/criar-conta','UserController@store')->name('user.store');
+Route::post('/cp/criar-conta','UserController@store')->name('user.store');
 
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['prefix'=>'cp', 'middleware' => 'auth'], function () {
+
+    Route::get('/inicio', 'UserController@index')->name('user.index');
 
     /*//SETORES
     Route::get('/setores', 'SetorController@index')->name('setor.index');

@@ -24,6 +24,10 @@ class CustomUserProvider implements UserProvider
         exit;
     }
 
+    /**
+     * @param array $credentials
+     * @return \Illuminate\Database\Eloquent\Model|null|void|static
+     */
     public function retrieveByCredentials(array $credentials)
     {
 
@@ -32,7 +36,7 @@ class CustomUserProvider implements UserProvider
         }
 
         $query = User::query()->where('name', $credentials['name'])->first();
-
+        //dd($query);
         return $query;
     }
 

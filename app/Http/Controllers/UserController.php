@@ -32,7 +32,7 @@ class UserController extends Controller
     public function postLogin(Request $request)
     {
         if (Auth::attempt(['name' => $request->name, 'passwd' => $request->passwd])) {
-            return redirect()->route('welcome');
+            return redirect()->route('user.index');
         }
 
         flash('Login ou senha incorretos ou inexistentes.')->error();

@@ -73,7 +73,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'custom_auth',
-            'model' => App\User::class,
+            'model' => App\Models\User::class,
         ],
 
         // 'users' => [

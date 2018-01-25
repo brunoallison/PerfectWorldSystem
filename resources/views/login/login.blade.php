@@ -26,6 +26,7 @@
                     <button type="submit" class="btn btn-default-dark">Entrar</button>
                 </div>
                 <a href="#">Esqueci minha senha.</a>
+                <a href="{{route('user.create')}}">Criar uma conta.</a>
                 {!! Form::close() !!}
             </div>
         </div>
