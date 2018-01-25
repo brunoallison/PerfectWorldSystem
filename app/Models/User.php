@@ -9,18 +9,15 @@ use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
 /**
- * Class User.
- *
- * @package namespace App\Entities;
+ * Class User
+ * @package App\Models
  */
-class User extends Model implements Transformable, Authenticatable
+class User extends Model implements Authenticatable, Transformable
 {
     use TransformableTrait;
     public $timestamps = false;
 
     /**
-     * The attributes that are mass assignable.
-     *
      * @var array
      */
     protected $fillable = [

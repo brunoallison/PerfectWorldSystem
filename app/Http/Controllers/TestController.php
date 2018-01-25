@@ -11,15 +11,12 @@ class TestController extends Controller
 
     public function __construct(UserRepository $repository)
     {
+        $this->middleware('user');
         $this->repository = $repository;
     }
 
     public function index()
     {
-        $users = $this->repository->all();
-
-        dd($users);
-
-        return view('test.index');
+        echo "dljaslkdjsalkd";
     }
 }

@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes();
 //SITE
 Route::get('/','SiteController@index')->name('index');
 Route::get('/download','SiteController@download')->name('download');
@@ -28,9 +28,9 @@ Route::get('/cp/criar-conta','UserController@create')->name('user.create');
 Route::post('/cp/criar-conta','UserController@store')->name('user.store');
 
 
-Route::group(['prefix'=>'cp', 'middleware' => 'auth'], function () {
+Route::group(['prefix'=>'cp', 'middleware' => ['user']], function () {
 
-    Route::get('/inicio', 'UserController@index')->name('user.index');
+    Route::get('/inicio', 'TestController@index')->name('user.index');
 
     /*//SETORES
     Route::get('/setores', 'SetorController@index')->name('setor.index');
