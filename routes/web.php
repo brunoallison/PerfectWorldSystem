@@ -31,6 +31,7 @@ Route::post('/cp/criar-conta','AuthUserController@store')->name('authUser.store'
 Route::group(['prefix'=>'cp', 'middleware' => ['user']], function () {
 
     Route::get('/inicio', 'UserController@index')->name('user.index');
+    Route::get('/chat', 'UserController@chat')->name('user.chat');
 
     /*//SETORES
     Route::get('/setores', 'SetorController@index')->name('setor.index');

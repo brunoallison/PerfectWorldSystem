@@ -20,4 +20,9 @@ class UserController extends Controller
     {
         
     }
+
+    public function chat()
+    {
+        return view('user.chat');
+    }
 }
