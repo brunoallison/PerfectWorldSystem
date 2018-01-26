@@ -2,25 +2,22 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
 /**
- * Class User.
- *
- * @package namespace App\Entities;
+ * Class User
+ * @package App\Models
  */
-class User extends Model implements Transformable, Authenticatable
+class User extends Model implements Authenticatable, Transformable
 {
-    use TransformableTrait;
+    use TransformableTrait,Notifiable;
     public $timestamps = false;
 
     /**
-     * The attributes that are mass assignable.
-     *
      * @var array
      */
     protected $fillable = [
@@ -51,12 +48,6 @@ class User extends Model implements Transformable, Authenticatable
         'passwd2'
     ];
 
-    public function setBirthdayAttribute($date)
-    {
-        $date = Carbon::createFromFormat('d/m/Y', $date);
-        $this->attributes['birthday'] = $date->format('Y-m-d');
-    }
-
     /**
      * Get the name of the unique identifier for the user.
      *
@@ -65,6 +56,7 @@ class User extends Model implements Transformable, Authenticatable
     public function getAuthIdentifierName()
     {
         // TODO: Implement getAuthIdentifierName() method.
+        return $this->truename;
     }
 
     /**
@@ -74,7 +66,7 @@ class User extends Model implements Transformable, Authenticatable
      */
     public function getAuthIdentifier()
     {
-        // TODO: Implement getAuthIdentifier() method.
+        return $this->ID;
     }
 
     /**
@@ -85,6 +77,7 @@ class User extends Model implements Transformable, Authenticatable
     public function getAuthPassword()
     {
         // TODO: Implement getAuthPassword() method.
+        return $this->passwd;
     }
 
     /**

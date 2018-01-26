@@ -1,6 +1,5 @@
 @extends('templates.app')
 @section('content')
-
     <h2 align="center">Perfect World X</h2>
 
     <div class="panel panel-default col-md-4 col-md-offset-4">
@@ -13,7 +12,7 @@
                 @include('flash::message')
                 <div class="container-login center-block">
                 </div>
-                {!! Form::open(['route' => 'user.login', 'method' => 'post']) !!}
+                {!! Form::open(['route' => 'authUser.login', 'method' => 'post']) !!}
                 <div class="form-group">
                     <label>Login</label>
                     {!! Form::text('name',null,['class' => 'form-control','required','placeholder' => 'Digite seu Login']) !!}
@@ -26,11 +25,9 @@
                     <button type="submit" class="btn btn-default-dark">Entrar</button>
                 </div>
                 <a href="#">Esqueci minha senha.</a>
-                <a href="{{route('user.create')}}">Criar uma conta.</a>
+                <a href="{{route('authUser.create')}}">Criar uma conta.</a>
                 {!! Form::close() !!}
             </div>
         </div>
     </div>
-
-
 @endsection

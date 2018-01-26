@@ -9,12 +9,12 @@
         "anhskohbo/no-captcha": "^3.0",
         "barryvdh/laravel-ide-helper": "^2.4",
         "fideloper/proxy": "~3.3",
+        "greggilbert/recaptcha": "dev-master",
         "kris/laravel-form-builder": "^1.14",
         "laracasts/flash": "^3.0",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "prettus/l5-repository": "^2.6",
-        "greggilbert/recaptcha": "dev-master"
+        "prettus/l5-repository": "^2.6"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

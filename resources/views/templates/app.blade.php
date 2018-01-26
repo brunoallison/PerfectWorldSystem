@@ -10,7 +10,7 @@
 
     <title> Perfect World Server </title>
 
-    {!! Html::style('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css') !!}
+    {!! Html::style('//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css') !!}
     {!! Html::style('css/account.css') !!}
     {{--{!! Html::style('css/style.min.css') !!}--}}
     @stack('styles')
@@ -22,7 +22,6 @@
 
 <div class="wrapper" id="teste">
     {{--@include('elements._header')--}}
-    <br></br>
     @yield('content')
 </div>
 

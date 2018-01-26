@@ -5,7 +5,7 @@
         </div>
         <ul class="foot_nav">
             <li><a href="{{route('index')}}">HOME</a></li>
-            <li><a href="{{route('user.create')}}">REGISTRO</a></li>
+            <li><a href="{{route('authUser.create')}}">REGISTRO</a></li>
             <li><a href="#">DONATE</a></li>
             <li><a href="{{route('download')}}">DOWNLOAD</a></li>
             <li><a href="{{route('infos')}}">INFORMAÇÕES</a></li>

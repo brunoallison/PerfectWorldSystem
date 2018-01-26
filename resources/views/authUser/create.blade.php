@@ -1,13 +1,12 @@
 @extends('templates.app')
 @push('styles')
-    {!! Html::style('css/datatables.min.css') !!}
-    {!! Html::style('js/libs/datepicker/css/bootstrap-datepicker3.css') !!}
+    {!! Html::style('js\libs\datepicker\css\bootstrap-datepicker3.css') !!}
 @endpush
 
 @push('scripts')
-    {!! Html::script('js/libs/datepicker/js/bootstrap-datepicker.min.js') !!}
-    {!! Html::script('js/libs/datepicker/locales/bootstrap-datepicker.pt-BR.min.js') !!}
-    {!! Html::script('js/libs/main.js') !!}
+    {!! Html::script('js\libs\datepicker\js\bootstrap-datepicker.js') !!}
+    {!! Html::script('js\libs\datepicker\locates\bootstrap-datepicker.pt-BR.min.js') !!}
+    {!! Html::script('js\libs\main.js') !!}
 @endpush
 @section('content')
     <h2 align="center">Perfect World X</h2>
@@ -19,7 +18,7 @@
             @include('flash::message')
             @include('errors._check_form')
             <div class="col-md-12">
-                {!! Form::open(['route' => 'user.store', 'method' => 'post']) !!}
+                {!! Form::open(['route' => 'authUser.store', 'method' => 'post']) !!}
                 <h3>Dados da Conta</h3>
                 <div class="form-group">
                     <label>Login</label>
