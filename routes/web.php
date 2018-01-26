@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+/*Auth::routes();*/
 //SITE
 Route::get('/','SiteController@index')->name('index');
 Route::get('/download','SiteController@download')->name('download');
@@ -20,17 +20,17 @@ Route::get('/staff','SiteController@staff')->name('staff');
 
 
 //Usuarios
-Route::get('/cp','UserController@login')->name('login');
-Route::post('/login','UserController@postLogin')->name('user.login');
-Route::get('/logout','UserController@logout')->name('logout');
+Route::get('/cp','AuthUserController@login')->name('login');
+Route::post('/login','AuthUserController@postLogin')->name('authUser.login');
+Route::get('/logout','AuthUserController@logout')->name('logout');
 
-Route::get('/cp/criar-conta','UserController@create')->name('user.create');
-Route::post('/cp/criar-conta','UserController@store')->name('user.store');
+Route::get('/cp/criar-conta','AuthUserController@create')->name('authUser.create');
+Route::post('/cp/criar-conta','AuthUserController@store')->name('authUser.store');
 
 
 Route::group(['prefix'=>'cp', 'middleware' => ['user']], function () {
 
-    Route::get('/inicio', 'TestController@index')->name('user.index');
+    Route::get('/inicio', 'UserController@index')->name('user.index');
 
     /*//SETORES
     Route::get('/setores', 'SetorController@index')->name('setor.index');

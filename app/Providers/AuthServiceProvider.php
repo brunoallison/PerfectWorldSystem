@@ -28,7 +28,6 @@ class AuthServiceProvider extends ServiceProvider
 
         Auth::provider('custom_auth', function ($app, array $config) {
             // Return an instance of Illuminate\Contracts\Auth\UserProvider...
-
             return new CustomUserProvider($app['hash'], $config['model']);
         });
 

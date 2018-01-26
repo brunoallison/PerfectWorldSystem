@@ -16,7 +16,11 @@ class User
      */
     public function handle($request, Closure $next)
     {
-        dd(auth()->user());
-        return $next($request);
+        if (auth()->check()) {
+            return $next($request);
+        }
+
+        flash()->error('Faça o login para acessar essa página.');
+        return redirect()->action('AuthUserController@login');
     }
 }
