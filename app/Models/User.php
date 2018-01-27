@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -47,6 +48,12 @@ class User extends Model implements Authenticatable, Transformable
         'passwd',
         'passwd2'
     ];
+
+    public function setBirthdayAttribute($date)
+    {
+        $date = Carbon::createFromFormat('d/m/Y', $date);
+        $this->attributes['birthday'] = $date->format('Y-m-d');
+    }
 
     /**
      * Get the name of the unique identifier for the user.

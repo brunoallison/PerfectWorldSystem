@@ -6,7 +6,7 @@
                 <li class=""><a href="{{route('index')}}" class="home"><span></span></a></li>
                 <li class="lvl_1"><a href="#" class="forum"><span></span></a>
                     <ol class="lvl_2">
-                        <li><a href="{{route('user.create')}}">REGISTRO</a></li>
+                        <li><a href="{{route('authUser.create')}}">REGISTRO</a></li>
                         <li><a href="#">ALTERAR SENHA</a></li>
                         <li><a href="#">RECUPERAR CONTA</a></li>
                         <li><a href="donate.html">DONATE</a></li>
