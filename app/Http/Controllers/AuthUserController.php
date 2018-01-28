@@ -32,6 +32,32 @@ class AuthUserController extends Controller
         return redirect()->route('login');
     }
 
+    public function Rcreate()
+    {
+        return view('authUser.Rcreate');
+    }
+
+    public function Rstore(UserCreateRequest $request)
+    {
+        $ultimoId = $this->repository->pegarUltimoIdCadastrado() + 16;
+        $request->request->add(['ID' => $ultimoId,
+            'truename' => $request->firstname . ' ' . $request->lastname,
+            'creatime' => Carbon::now(),
+            'passwd' => criptografa($request->name, $request->passwd),
+            'passwd2' => criptografa($request->name, $request->passwd),
+            'idnumber' => request()->ip(),
+            'mobilenumber' => '0',
+            'province' => '0',
+            'city' => '0',
+            'phonenumber' => '0',
+            'address' => '0',
+            'postalcode' => '0',
+            'adm' => '0']);
+        $this->repository->create($request->all());
+        flash('Usuário cadastrado com sucesso. Confirme sua conta pelo e-mail.')->success();
+        return redirect()->back();
+    }
+
     public function create()
     {
         return view('authUser.create');
@@ -65,6 +91,11 @@ class AuthUserController extends Controller
     public function login()
     {
         return view('login.login');
+    }
+
+    public function Rlogin()
+    {
+        return view('login.Rlogin');
     }
 
     public function logout()

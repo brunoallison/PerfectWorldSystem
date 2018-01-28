@@ -22,7 +22,7 @@ class UserCreateRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    /*public function rules()
     {
         return [
             'g-recaptcha-response' => 'required|recaptcha',
@@ -43,9 +43,24 @@ class UserCreateRequest extends FormRequest
             'gender' => 'required',
             'birthday' => 'required|date_format:"d/m/Y"|before:tomorrow'
         ];
+    }*/
+
+    public function rules()
+    {
+        return [
+          'passwd' => 'required|min:6|max:64'
+        ];
     }
 
     public function messages()
+    {
+        return [
+            'passwd.min' => 'Senha deve conter no minimo 6 caracteres.',
+            'passwd.max' => 'Senha deve conter no máximo 64 caracteres.'
+        ];
+    }
+
+    /*public function messages()
     {
         return [
             'g-recaptcha-response.required' => 'É necessário marcar o campo captcha.',
@@ -76,5 +91,5 @@ class UserCreateRequest extends FormRequest
             'birthday.required' => 'Data de nascimento é obrigatório.',
             'gender.date_format' => 'Formato de data inválido.',
         ];
-    }
+    }*/
 }

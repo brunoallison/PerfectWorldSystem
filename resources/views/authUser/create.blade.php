@@ -58,7 +58,7 @@
                 </label>
                 <div class="form-group">
                     <label>Data de Nascimento</label>
-                    {!! Form::text('birthday',null,['class' => 'form-control calendar','required', 'required']) !!}
+                    {!! Form::text('birthday',null,['class' => 'form-control calendar','required', 'required', 'placeholder' => 'data']) !!}
                 </div>
                 {!! Recaptcha::render() !!}<br>
 

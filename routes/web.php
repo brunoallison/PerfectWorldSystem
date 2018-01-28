@@ -21,11 +21,15 @@ Route::get('/staff','SiteController@staff')->name('staff');
 
 //Usuarios
 Route::get('/cp','AuthUserController@login')->name('login');
+Route::get('/cplogin','AuthUserController@Rlogin')->name('Rlogin');
 Route::post('/login','AuthUserController@postLogin')->name('authUser.login');
 Route::get('/logout','AuthUserController@logout')->name('logout');
 
 Route::get('/cp/criar-conta','AuthUserController@create')->name('authUser.create');
 Route::post('/cp/criar-conta','AuthUserController@store')->name('authUser.store');
+
+Route::get('/cp/register','AuthUserController@Rcreate')->name('authUser.Rcreate');
+Route::post('/cp/register','AuthUserController@Rstore')->name('authUser.Rstore');
 
 
 Route::group(['prefix'=>'cp', 'middleware' => ['user']], function () {
