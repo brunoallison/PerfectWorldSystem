@@ -2,10 +2,9 @@
 
 namespace App\Auth;
 
-use App\Models\User;
+use App\Models\UserWeb;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\UserProvider;
-use Illuminate\Support\Facades\Auth;
 
 
 class CustomUserProvider implements UserProvider
@@ -16,19 +15,22 @@ class CustomUserProvider implements UserProvider
      */
     public function retrieveById($identifier)
     {
-        $qry = User::where('ID', '=', $identifier);
+        $qry = UserWeb::where('id', '=', $identifier);
 
         if (count($qry) > 0) {
-            $user = $qry->select('ID', 'name', 'passwd', 'Prompt', 'answer', 'truename', 'idnumber', 'email')->first();
+            $user = $qry->select('id', 'login', 'senha', 'nome', 'sobrenome', 'token', 'admin', 'sexo', 'avatar', 'gold', 'actived')->first();
             $attributes = array(
-                'ID' => $user->ID,
-                'name' => $user->name,
-                'passwd' => $user->passwd,
-                'Prompt' => $user->Prompt,
-                'answer' => $user->answer,
-                'truename' => $user->truename,
-                'idnumber' => $user->idnumber,
-                'email' => $user->email
+                'id' => $user->is,
+                'login' => $user->login,
+                'senha' => $user->senha,
+                'nome' => $user->nome,
+                'sobrenome' => $user->sobrenome,
+                'token' => $user->token,
+                'admin' => $user->admin,
+                'sexo' => $user->sexo,
+                'avatar' => $user->avatar,
+                'gold' => $user->user,
+                'actived' => $user->actived
             );
             return $user;
         }
@@ -57,10 +59,11 @@ class CustomUserProvider implements UserProvider
     public function retrieveByCredentials(array $credentials)
     {
 
-        $query = User::query()->where('name', $credentials['name']);
+
+        $query = UserWeb::query()->where('login', $credentials['login']);
 
         if (count($query) > 0) {
-            $user = $query->select('ID', 'name', 'passwd', 'Prompt', 'answer', 'truename', 'idnumber', 'email')->first();
+            $user = $query->select('id', 'login', 'senha', 'nome', 'sobrenome', 'token', 'admin', 'sexo', 'avatar', 'gold', 'actived')->first();
 
             return $user;
         }
@@ -74,9 +77,9 @@ class CustomUserProvider implements UserProvider
      */
     public function validateCredentials(Authenticatable $user, array $credentials)
     {
-        $plain = base64_encode(md5($credentials['name'] . $credentials['passwd'], true));
+        $plain = base64_encode(md5($credentials['login'] . $credentials['senha'], true));
 
-        if ($credentials['name'] == $user->name && $plain == $user->passwd) {
+        if ($credentials['login'] == $user->login && $plain == $user->senha) {
 
             $user->save();
 

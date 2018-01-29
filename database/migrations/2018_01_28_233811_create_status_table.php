@@ -4,9 +4,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 /**
- * Class CreateUsecashnowsTable.
+ * Class CreateStatusTable.
  */
-class CreateUsecashnowsTable extends Migration
+class CreateStatusTable extends Migration
 {
 	/**
 	 * Run the migrations.
@@ -15,8 +15,10 @@ class CreateUsecashnowsTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('usecashnows', function(Blueprint $table) {
+		Schema::create('status', function(Blueprint $table) {
             $table->increments('id');
+
+            $table->string('nome');
 
             $table->timestamps();
 		});
@@ -29,6 +31,6 @@ class CreateUsecashnowsTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('usecashnows');
+		Schema::drop('status');
 	}
 }

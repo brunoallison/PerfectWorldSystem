@@ -4,9 +4,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 /**
- * Class CreateForbidsTable.
+ * Class CreateGoldTable.
  */
-class CreateForbidsTable extends Migration
+class CreateGoldTable extends Migration
 {
 	/**
 	 * Run the migrations.
@@ -15,8 +15,11 @@ class CreateForbidsTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('forbids', function(Blueprint $table) {
+		Schema::create('gold', function(Blueprint $table) {
             $table->increments('id');
+
+            $table->integer('quantidade')->nullable();
+            $table->integer('preco')->nullable();
 
             $table->timestamps();
 		});
@@ -29,6 +32,6 @@ class CreateForbidsTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('forbids');
+		Schema::drop('gold');
 	}
 }

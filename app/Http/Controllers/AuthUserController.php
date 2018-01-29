@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\User\UserCreateRequest;
+use App\Http\Requests\AuthUser\AuthUserCreateRequest;
 use App\Repositories\UserRepository;
+use App\Repositories\UserWebRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,18 +14,24 @@ class AuthUserController extends Controller
     /** @var UserRepository  */
     protected $repository;
 
+    /** @var UserWebRepository  */
+    protected $userWebRepository;
+
     /**
      * AuthUserController constructor.
      * @param UserRepository $repository
+     * @param UserWebRepository $userWebRepository
      */
-    public function __construct(UserRepository $repository)
+    public function __construct(UserRepository $repository, UserWebRepository $userWebRepository)
     {
         $this->repository = $repository;
+        $this->userWebRepository = $userWebRepository;
     }
 
     public function postLogin(Request $request)
     {
-        if (Auth::attempt(['name' => $request->name, 'passwd' => $request->passwd])) {
+
+        if (Auth::attempt(['login' => $request->login, 'senha' => $request->senha])) {
             return redirect()->route('user.index');
         }
 
@@ -32,12 +39,19 @@ class AuthUserController extends Controller
         return redirect()->route('login');
     }
 
-    public function Rcreate()
+    public function store(Request $request)
     {
-        return view('authUser.Rcreate');
+        $request->request->add(['token' => $request->_token,
+            'gold' => '0',
+            'actived' => '0',
+            'adm' => '0',
+            'senha' => criptografa($request->login,$request->senha)]);
+        $this->userWebRepository->create($request->all());
+        flash('Usuário cadastrado com sucesso. Confirme sua conta pelo e-mail.')->success();
+        return redirect()->back();
     }
 
-    public function Rstore(UserCreateRequest $request)
+    public function storeGame(Request $request)
     {
         $ultimoId = $this->repository->pegarUltimoIdCadastrado() + 16;
         $request->request->add(['ID' => $ultimoId,
@@ -63,25 +77,6 @@ class AuthUserController extends Controller
         return view('authUser.create');
     }
 
-    public function store(UserCreateRequest $request)
-    {
-        $ultimoId = $this->repository->pegarUltimoIdCadastrado() + 16;
-        $request->request->add(['ID' => $ultimoId,
-            'creatime' => Carbon::now(),
-            'passwd' => criptografa($request->name, $request->passwd),
-            'passwd2' => criptografa($request->name, $request->passwd),
-            'idnumber' => request()->ip(),
-            'mobilenumber' => '0',
-            'province' => '0',
-            'city' => '0',
-            'phonenumber' => '0',
-            'address' => '0',
-            'postalcode' => '0',
-            'adm' => '0']);
-        $this->repository->create($request->all());
-        flash('Usuário cadastrado com sucesso. Confirme sua conta pelo e-mail.')->success();
-        return redirect()->back();
-    }
 
     public function index()
     {
@@ -91,11 +86,6 @@ class AuthUserController extends Controller
     public function login()
     {
         return view('login.login');
-    }
-
-    public function Rlogin()
-    {
-        return view('login.Rlogin');
     }
 
     public function logout()

@@ -30,5 +30,8 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(\App\Repositories\UsecashlogRepository::class, \App\Repositories\UsecashlogRepositoryEloquent::class);
         $this->app->bind(\App\Repositories\UsecashnowRepository::class, \App\Repositories\UsecashnowRepositoryEloquent::class);
         $this->app->bind(\App\Repositories\UserRepository::class, \App\Repositories\UserRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\GoldRepository::class, \App\Repositories\GoldRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\StatusRepository::class, \App\Repositories\StatusRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\UserWebRepository::class, \App\Repositories\UserWebRepositoryEloquent::class);
     }
 }
