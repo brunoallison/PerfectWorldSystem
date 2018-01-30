@@ -70,7 +70,8 @@
     <div id="content" class="container">
 
         <div class="row">
-            <div class="col-md-6 col-lg-offset-3">
+            <div class="col-md-6 col-lg-offset-3">,
+                @include('flash::message')
                 <div class="well no-padding">
                     {!! Form::open(['class' => 'smart-form client-form', 'route' => 'authUser.login', 'method' => 'post']) !!}
                         <header>
@@ -79,10 +80,11 @@
 
                         <fieldset>
 
+                            @include('errors._check_form')
                             <section>
                                 <label class="label">Login</label>
                                 <label class="input"> <i class="icon-append fa fa-user"></i>
-                                    {!! Form::text('login',null,['required','placeholder' => 'Digite seu Login']) !!}
+                                    {!! Form::text('login',null,['placeholder' => 'Digite seu Login']) !!}
                                     <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i>
                                         Por favor insira seu login</b></label>
                             </section>
@@ -90,7 +92,7 @@
                             <section>
                                 <label class="label">Senha</label>
                                 <label class="input"> <i class="icon-append fa fa-lock"></i>
-                                    {!! Form::password('senha',['required','placeholder' => 'Digite sua Senha']) !!}
+                                    {!! Form::password('senha',['placeholder' => 'Digite sua Senha']) !!}
                                     <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Por insira sua senha</b> </label>
                                 <div class="note">
                                     <a href="forgotpassword.html">Esqueceu a senha?</a>

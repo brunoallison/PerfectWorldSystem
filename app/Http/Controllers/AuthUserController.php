@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthUser\AuthUserCreateRequest;
+use App\Http\Requests\AuthUser\AuthUserLoginRequest;
 use App\Repositories\UserRepository;
 use App\Repositories\UserWebRepository;
 use Carbon\Carbon;
@@ -30,13 +31,13 @@ class AuthUserController extends Controller
 
     public function postLogin(Request $request)
     {
-
         if (Auth::attempt(['login' => $request->login, 'senha' => $request->senha])) {
             return redirect()->route('user.index');
+
         }
 
         flash('Login ou senha incorretos ou inexistentes.')->error();
-        return redirect()->route('login');
+        return redirect()->back();
     }
 
     public function store(Request $request)
