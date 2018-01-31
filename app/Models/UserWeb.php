@@ -17,12 +17,15 @@ class UserWeb extends Model implements Authenticatable, Transformable
 {
     use TransformableTrait;
 
+    protected $table = "user_webs";
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
+        'id_game',
         'login',
         'email',
         'nome',
@@ -40,7 +43,7 @@ class UserWeb extends Model implements Authenticatable, Transformable
     public function setNascimentoAttribute($date)
     {
         $date = Carbon::createFromFormat('d/m/Y', $date);
-        $this->attributes['Nascimento'] = $date->format('Y-m-d');
+        $this->attributes['nascimento'] = $date->format('Y-m-d');
     }
 
     /**

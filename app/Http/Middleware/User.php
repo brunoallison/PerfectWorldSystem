@@ -19,7 +19,6 @@ class User
         if (auth()->check()) {
             return $next($request);
         }
-
         flash()->error('Faça o login para acessar essa página.');
         return redirect()->action('AuthUserController@login');
     }

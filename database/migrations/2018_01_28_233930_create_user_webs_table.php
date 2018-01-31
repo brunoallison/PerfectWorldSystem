@@ -18,18 +18,19 @@ class CreateUserWebsTable extends Migration
 		Schema::create('user_webs', function(Blueprint $table) {
             $table->increments('id');
 
+            $table->integer('id_game')->nullable();
             $table->string('login', 32);
             $table->string('email', 64);
             $table->string('nome', 32);
             $table->string('sobrenome', 32);
             $table->date('nascimento');
             $table->integer('sexo');
-            $table->integer('gold');
+            $table->integer('gold')->default('0');
             $table->string('senha', 64);
-            $table->binary('avatar')->nullable();
+            $table->longText('avatar')->nullable();
             $table->string('token')->nullable();
-            $table->boolean('actived')->default(false);
-            $table->boolean('admin')->default(false);
+            $table->boolean('actived')->default('0');
+            $table->boolean('admin')->default('0');
 
             $table->timestamps();
 		});

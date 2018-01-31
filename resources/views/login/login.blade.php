@@ -71,7 +71,6 @@
 
         <div class="row">
             <div class="col-md-6 col-lg-offset-3">,
-                @include('flash::message')
                 <div class="well no-padding">
                     {!! Form::open(['class' => 'smart-form client-form', 'route' => 'authUser.login', 'method' => 'post']) !!}
                         <header>
@@ -79,7 +78,7 @@
                         </header>
 
                         <fieldset>
-
+                            @include('flash::message')
                             @include('errors._check_form')
                             <section>
                                 <label class="label">Login</label>
