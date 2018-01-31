@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Prettus\Repository\Contracts\Transformable;
@@ -13,9 +12,9 @@ use Prettus\Repository\Traits\TransformableTrait;
  * Class User
  * @package App\Models
  */
-class User extends Model implements Authenticatable, Transformable
+class User extends Model implements Transformable
 {
-    use TransformableTrait,Notifiable;
+    use TransformableTrait, Notifiable;
     public $timestamps = false;
 
     /**
@@ -55,66 +54,4 @@ class User extends Model implements Authenticatable, Transformable
         $this->attributes['birthday'] = $date->format('Y-m-d');
     }
 
-    /**
-     * Get the name of the unique identifier for the user.
-     *
-     * @return string
-     */
-    public function getAuthIdentifierName()
-    {
-        // TODO: Implement getAuthIdentifierName() method.
-        return $this->truename;
-    }
-
-    /**
-     * Get the unique identifier for the user.
-     *
-     * @return mixed
-     */
-    public function getAuthIdentifier()
-    {
-        return $this->ID;
-    }
-
-    /**
-     * Get the password for the user.
-     *
-     * @return string
-     */
-    public function getAuthPassword()
-    {
-        // TODO: Implement getAuthPassword() method.
-        return $this->passwd;
-    }
-
-    /**
-     * Get the token value for the "remember me" session.
-     *
-     * @return string
-     */
-    public function getRememberToken()
-    {
-        // TODO: Implement getRememberToken() method.
-    }
-
-    /**
-     * Set the token value for the "remember me" session.
-     *
-     * @param  string $value
-     * @return void
-     */
-    public function setRememberToken($value)
-    {
-        // TODO: Implement setRememberToken() method.
-    }
-
-    /**
-     * Get the column name for the "remember me" token.
-     *
-     * @return string
-     */
-    public function getRememberTokenName()
-    {
-        // TODO: Implement getRememberTokenName() method.
-    }
 }

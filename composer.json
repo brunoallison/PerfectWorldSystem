@@ -10,6 +10,7 @@
         "barryvdh/laravel-ide-helper": "^2.4",
         "fideloper/proxy": "~3.3",
         "greggilbert/recaptcha": "dev-master",
+        "guzzlehttp/guzzle": "^6.3",
         "kris/laravel-form-builder": "^1.14",
         "laracasts/flash": "^3.0",
         "laravel/framework": "5.5.*",

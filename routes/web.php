@@ -23,6 +23,8 @@ Route::get('/staff','SiteController@staff')->name('staff');
 Route::get('/cp','AuthUserController@login')->name('login');
 Route::post('/login','AuthUserController@postLogin')->name('authUser.login');
 Route::get('/logout','AuthUserController@logout')->name('logout');
+Route::get('/mail','MailController@index')->name('mail.index');
+Route::get('/postMail','MailController@post')->name('mail.post');
 
 Route::get('/cp/criar-conta','AuthUserController@create')->name('authUser.create');
 Route::post('/cp/criar-conta','AuthUserController@store')->name('authUser.store');
