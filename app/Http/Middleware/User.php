@@ -16,8 +16,12 @@ class User
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->check()) {
+
+        if (auth()->check() AND auth()->user()->actived == 1) {
             return $next($request);
+        }elseif(auth()->check() AND auth()->user()->actived == 0){
+            flash()->error('Vocẽ precisa confirmar sua conta pelo e-mail cadastrado.');
+            return redirect()->action('AuthUserController@login');
         }
         flash()->error('Faça o login para acessar essa página.');
         return redirect()->action('AuthUserController@login');

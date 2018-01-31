@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
@@ -15,7 +16,7 @@ use Prettus\Repository\Traits\TransformableTrait;
  */
 class UserWeb extends Model implements Authenticatable, Transformable
 {
-    use TransformableTrait;
+    use TransformableTrait, Notifiable;
 
     protected $table = "user_webs";
 

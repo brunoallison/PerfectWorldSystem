@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthUser\AuthUserCreateRequest;
 use App\Http\Requests\AuthUser\AuthUserLoginRequest;
+use App\Notifications\VerifyEmail;
+use Illuminate\Notifications\Notifiable;
 use App\Repositories\UserRepository;
 use App\Repositories\UserWebRepository;
 use Carbon\Carbon;
@@ -44,11 +46,18 @@ class AuthUserController extends Controller
         return view('authUser.create');
     }
 
+    /**
+     * @param AuthUserCreateRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(AuthUserCreateRequest $request)
     {
         $request->request->add(['token' => base64_encode(Carbon::now() . $request->login . $request->senha),
             'senha' => criptografa($request->login,$request->senha)]);
-        $this->userWebRepository->create($request->all());
+        $user = $this->userWebRepository->create($request->all());
+
+        $user->notify(new VerifyEmail($user));
+
         flash('Usuário cadastrado com sucesso. Confirme sua conta pelo e-mail.')->success();
         return redirect()->back();
     }
