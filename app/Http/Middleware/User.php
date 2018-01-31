@@ -20,7 +20,7 @@ class User
         if (auth()->check() AND auth()->user()->actived == 1) {
             return $next($request);
         }elseif(auth()->check() AND auth()->user()->actived == 0){
-            flash()->error('Vocẽ precisa confirmar sua conta pelo e-mail cadastrado.');
+            flash()->warning('Vocẽ precisa confirmar sua conta pelo e-mail cadastrado.');
             return redirect()->action('AuthUserController@login');
         }
         flash()->error('Faça o login para acessar essa página.');
