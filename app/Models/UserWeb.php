@@ -18,6 +18,7 @@ class UserWeb extends Model implements Authenticatable, Transformable
 {
     use TransformableTrait, Notifiable;
 
+    protected $connection = "mysql";
     protected $table = "user_webs";
 
     /**

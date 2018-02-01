@@ -15,6 +15,7 @@ use Prettus\Repository\Traits\TransformableTrait;
 class User extends Model implements Transformable
 {
     use TransformableTrait, Notifiable;
+    protected $connection = "mysql_game";
     public $timestamps = false;
 
     /**

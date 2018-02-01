@@ -14,6 +14,7 @@ use Prettus\Repository\Traits\TransformableTrait;
 class Gold extends Model implements Transformable
 {
     use TransformableTrait;
+    protected $connection = "mysql";
 
     /**
      * The attributes that are mass assignable.

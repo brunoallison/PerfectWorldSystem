@@ -14,6 +14,7 @@ use Prettus\Repository\Traits\TransformableTrait;
 class Point extends Model implements Transformable
 {
     use TransformableTrait;
+    protected $connection = "mysql_game";
     public $timestamps = false;
 
     /**

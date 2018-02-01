@@ -16,6 +16,8 @@ class Auth extends Model implements Transformable
     use TransformableTrait;
     public $timestamps = false;
 
+    protected $connection = "mysql_game";
+
     /**
      * The attributes that are mass assignable.
      *

@@ -14,6 +14,7 @@ use Prettus\Repository\Traits\TransformableTrait;
 class Status extends Model implements Transformable
 {
     use TransformableTrait;
+    protected $connection = "mysql_game";
 
     /**
      * The attributes that are mass assignable.
