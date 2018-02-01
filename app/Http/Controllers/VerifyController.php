@@ -28,7 +28,7 @@ class VerifyController extends Controller
         $this->repository->findWhere(['token' => $token])->first()->update(['actived' => '1', 'token' => null]);
 
 
-        flash('Conta verificada con sucesso.')->success();
+        flash('Conta verificada com sucesso.')->success();
         return redirect()->route('login');
     }
 }
