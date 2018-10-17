@@ -173,9 +173,15 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\RepositoryServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
+        Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,
 
     ],
 
@@ -225,6 +231,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class,
+        'Recaptcha' => Greggilbert\Recaptcha\Facades\Recaptcha::class
 
     ],
 

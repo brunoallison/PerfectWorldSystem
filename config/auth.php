@@ -64,10 +64,16 @@ return [
     |
     */
 
-    'providers' => [
+    /*'providers' => [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],*/
+
+    'providers' => [
+        'users' => [
+            'driver' => 'custom_auth',
+            'model' => App\Models\User::class,
         ],
 
         // 'users' => [
