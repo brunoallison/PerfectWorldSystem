@@ -21,6 +21,7 @@ Route::get('/staff','SiteController@staff')->name('staff');
 
 //Usuarios
 Route::get('/cp','AuthUserController@login')->name('login');
+Route::get('/zohoverify/verifyforzoho.html','AuthUserController@zohoverify')->name('zohoverify.verify');
 Route::post('/login','AuthUserController@postLogin')->name('authUser.login');
 Route::get('/logout','AuthUserController@logout')->name('logout');
 Route::get('/verificar-email/{token}','VerifyController@verify')->name('verify');
