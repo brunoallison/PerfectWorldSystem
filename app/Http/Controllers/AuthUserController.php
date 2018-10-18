@@ -99,4 +99,9 @@ class AuthUserController extends Controller
         Auth::logout();
         return redirect()->route('login');
     }
+
+    public function zohoverify()
+    {
+        return "1539836856477";
+    }
 }
